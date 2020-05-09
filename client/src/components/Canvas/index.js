@@ -46,11 +46,9 @@ function Canvas() {
 
   return (
     <div className="App">
-
-
-
+      
       <SignatureCanvas penColor='black'
-        canvasProps={{ width: 500, height: 200, id: 'canvas', className: 'sigCanvas' }} />
+        canvasProps={{ width: 420, height: 200, id: 'canvas', className: 'sigCanvas' }} />
       {/* <SignatureCanvas ref={(ref) => { this.sigCanvas = ref }} /> */}
 
       <button onClick={log}>Test</button>
@@ -59,8 +57,6 @@ function Canvas() {
       <img src={imageData} alt="drawing"></img>
     </div>
   )
-
-
 
 }
 

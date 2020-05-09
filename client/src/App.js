@@ -10,7 +10,7 @@ import NoMatch from "./pages/NoMatch";
 function App() {
   return (
     <Router>
-      <div class="custom">
+      <div className="custom">
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/joingame" component={JoinGame} />
