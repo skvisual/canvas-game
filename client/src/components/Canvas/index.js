@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import CanvasComponent from './components/CanvasComponent';
-import './CanvasStyle.css'
+import './style.css'
 
 // import ReactDOM from 'react-dom'
 import SignatureCanvas from 'react-signature-canvas'

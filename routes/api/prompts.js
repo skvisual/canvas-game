@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Prompt = require("../models/Prompts");
+const Prompt = require("../../models/Prompts");
 //  
 
 // gets back all the prompts

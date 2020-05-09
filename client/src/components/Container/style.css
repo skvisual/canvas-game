@@ -1,0 +1,14 @@
+/* .custom{
+    background-color: aquamarine;
+} */
+
+.layout {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.layout div {
+    margin: 10px;
+}
