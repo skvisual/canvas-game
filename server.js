@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 require("dotenv/config");
 //bring path in
 
+// declare production or localhost
+const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,7 +27,7 @@ app.get("/", (req, res) => {
 });
 
 // connect to DB
-mongoose.connect("mongodb://localhost/cluster0", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/cluster0", { useNewUrlParser: true, useUnifiedTopology: true });
 
 mongoose.connection.on("error", err => {
   console.log(err)
@@ -33,4 +35,6 @@ mongoose.connection.on("error", err => {
 // app.post;
 
 // Start listening
-app.listen(3000);
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}!`);
+});
