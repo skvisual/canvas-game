@@ -1,40 +1,32 @@
 const express = require("express");
-const app = express();
+
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-require("dotenv/config");
-//bring path in
+const routes = require("./routes");
+const app = express();
+const PORT = process.env.PORT || 3001;
 
-// declare production or localhost
-const PORT = process.env.PORT || 3000;
+// Configure body parsing for AJAX requests
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+// Serve up static assets
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// Add routes, both API and view
+app.use(routes);
 
-// import routes
-const promptsRoute = require("./routes/prompts");
-app.use("/prompts", promptsRoute);
+// Connect to the Mongo DB
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/cluster0",
+  {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
+);
 
-const usersRoute = require("./routes/users");
-app.use("/users", usersRoute);
-
-// Middlewares
-// app.use(auth); authentication will go here.
-
-// routes
-app.get("/", (req, res) => {
-  res.sendFile("/canvas-game/client/public/index.html");
-});
-
-// connect to DB
-mongoose.connect("mongodb://localhost/cluster0", { useNewUrlParser: true, useUnifiedTopology: true });
-
-mongoose.connection.on("error", err => {
-  console.log(err)
-})
-// app.post;
-
-// Start listening
-app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}!`);
-});
+// Start the API server
+app.listen(PORT, () =>
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
+);
