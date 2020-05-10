@@ -24,9 +24,16 @@ mongoose.connect(
     useNewUrlParser: true,
     useUnifiedTopology: true
   }
-);
+)
+.then(() => {
+  server = app.listen(PORT, function() {
+    require("./socketio/index.js")(server);
+    console.log("App now listening at localhost:" + PORT);
+    
+});
+})
 
 // Start the API server
-app.listen(PORT, () =>
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
-);
+// app.listen(PORT, () =>
+//   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
+// );
