@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "../components/Container";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Button from "../components/Button";
 
 function Home() {
+  const [gameState, setGameState] = useState(false)
+
+  if(gameState === true){
+    return <Redirect to="/game" />
+  }
+
+  const startGame = () => {
+    setGameState(true);
+  }
 
   return (
     <Container>
@@ -24,6 +33,9 @@ function Home() {
         <Link to="/Game">
           <Button name={"Start"}/>
         </Link>
+      </div>
+      <div>
+        <button onClick={startGame}>Start Game</button>
       </div>
     </Container>
   );

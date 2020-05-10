@@ -47,11 +47,9 @@ function Canvas() {
   // TODO: Make Canvas resize to fit screen size
   return (
     <div className="App">
-
-
-
+      
       <SignatureCanvas penColor='black'
-        canvasProps={{ width: 430, height: 200, id: 'canvas', className: 'sigCanvas' }} />
+        canvasProps={{ width: 420, height: 200, id: 'canvas', className: 'sigCanvas' }} />
       {/* <SignatureCanvas ref={(ref) => { this.sigCanvas = ref }} /> */}
 
       <button className = "btn btn-dark btn-block custom-button" onClick={log}>Submit Drawing</button>
@@ -60,8 +58,6 @@ function Canvas() {
       {/* <img src={imageData} alt="drawing"></img> */}
     </div>
   )
-
-
 
 }
 

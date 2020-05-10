@@ -11,10 +11,10 @@ function JoinGame() {
         <p className="text-center">Join Game</p>
       </div>
       <div>
-        <input type="text" placeholder="room code" class="form-control" />
+        <input type="text" placeholder="room code" className="form-control" />
       </div>
       <div>
-        <input type="text" placeholder="username" class="form-control" />
+        <input type="text" placeholder="username" className="form-control" />
       </div>
       <div>
         <Link to="/lobby">
