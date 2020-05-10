@@ -4,7 +4,7 @@ import Button from "../components/Button"
 import { Link } from "react-router-dom";
 import Canvas from "../components/Canvas";
 
-function Game() {
+function Drawing() {
 
   return (
     <Container>
@@ -12,7 +12,7 @@ function Game() {
         <p className="text-center">In Game</p>
       </div>
       <div>
-        <h4 className="text-center">We made it!</h4>
+        <h4 className="text-center">Your turn to draw</h4>
       </div>
       <div>
         <Canvas />
@@ -27,4 +27,4 @@ function Game() {
 
 }
 
-export default Game;
+export default Drawing;
