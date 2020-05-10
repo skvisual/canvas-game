@@ -49,7 +49,7 @@ function Canvas() {
     <div className="App">
       
       <SignatureCanvas penColor='black'
-        canvasProps={{ width: 420, height: 200, id: 'canvas', className: 'sigCanvas' }} />
+        canvasProps={{ width: 430, height: 200, id: 'canvas', className: 'sigCanvas' }} />
       {/* <SignatureCanvas ref={(ref) => { this.sigCanvas = ref }} /> */}
 
       <button className = "btn btn-dark btn-block custom-button" onClick={log}>Submit Drawing</button>
