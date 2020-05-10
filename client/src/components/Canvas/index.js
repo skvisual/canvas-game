@@ -29,11 +29,11 @@ function Canvas() {
   }
 
   function clearScreen() {
-    if (canvas) {
+    canvas = document.getElementById('canvas');
       canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height)
 
 
-    }
+    
   }
 
   useEffect(() => {
@@ -44,19 +44,20 @@ function Canvas() {
     }
   }, [imageData])
 
+  // TODO: Make Canvas resize to fit screen size
   return (
     <div className="App">
 
 
 
       <SignatureCanvas penColor='black'
-        canvasProps={{ width: 500, height: 200, id: 'canvas', className: 'sigCanvas' }} />
+        canvasProps={{ width: 430, height: 200, id: 'canvas', className: 'sigCanvas' }} />
       {/* <SignatureCanvas ref={(ref) => { this.sigCanvas = ref }} /> */}
 
-      <button onClick={log}>Test</button>
-      <button onClick={clearScreen}>Clear</button>
+      <button className = "btn btn-dark btn-block custom-button" onClick={log}>Submit Drawing</button>
+      <button className = "btn btn-dark btn-block custom-button" onClick={clearScreen}>Clear</button>
 
-      <img src={imageData} alt="drawing"></img>
+      {/* <img src={imageData} alt="drawing"></img> */}
     </div>
   )
 
