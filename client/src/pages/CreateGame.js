@@ -14,7 +14,7 @@ function CreateGame() {
         <p className="text-center">A game code will be generated for you</p>
       </div>
       <div>
-        <input type="text" placeholder="username" class="form-control" />
+        <input type="text" placeholder="username" className="form-control" />
       </div>
       <div>
         <Link to="/lobby">

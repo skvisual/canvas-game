@@ -7,7 +7,7 @@ function Home() {
   const [gameState, setGameState] = useState(false)
 
   if(gameState === true){
-    return <Redirect to="/game" />
+    return <Redirect to="/drawing" />
   }
 
   const startGame = () => {
@@ -30,7 +30,7 @@ function Home() {
         <p className="text-center">Player 4</p>
       </div>
       <div>
-        <Link to="/Game">
+        <Link to="/Drawing">
           <Button name={"Start"}/>
         </Link>
       </div>
