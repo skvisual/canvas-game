@@ -3,7 +3,8 @@ const io = require('socket.io-client');
 
 const SocketContext = React.createContext({
     socket: {},
-    joinRoom: () => {}
+    joinRoom: () => {},
+    onMessage: () => {}
 });
 
     // const [username, setUsername] = useState();

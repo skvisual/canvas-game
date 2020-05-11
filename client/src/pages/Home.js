@@ -8,7 +8,10 @@ function Home() {
 
   return (
     <Container>
-      <img id="logo" src={logo} alt="Squigglepig Logo"/>
+      <div>
+        <img id="logo" src={logo} alt="Squigglepig Logo"/>
+      </div>
+      
       <div>
         <Link to="/joingame">
           <Button name={"Join Game"}/>

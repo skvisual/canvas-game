@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Container } from "../components/Container";
 import { Link, Redirect } from "react-router-dom";
 import Button from "../components/Button";
+import SocketContext from "../utils/Socket";
 
-function Home() {
+function Lobby() {
   const [gameState, setGameState] = useState(false)
 
   if(gameState === true){
@@ -13,6 +14,16 @@ function Home() {
   const startGame = () => {
     setGameState(true);
   }
+
+  const { socket, onMessage } = useContext(SocketContext)
+
+  onMessage();
+
+  // useEffect(() => {
+  //   socket.on('message', (data) => {
+  //     console.log(data)
+  //   })
+  // }, [])
 
   return (
     <Container>
@@ -42,4 +53,4 @@ function Home() {
 
 }
 
-export default Home;
+export default Lobby;
