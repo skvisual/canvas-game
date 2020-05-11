@@ -19,14 +19,20 @@ function App() {
   const [socket, setSocket] = useState(io(window.origin))
 
   const joinRoom = (username, room) => {
-    socket.emit('message', `Can ${username} join ${room}`)
-    // console.log('hello')
+    socket.emit('join-room', `Can ${username} join ${room}`)
+  }
+
+  const onMessage = () => {
+    console.log('onMessage')
+    socket.on('message', (data) => {
+      console.log(data)
+    })
   }
 
   return (
     <Router>
       <div className="custom">
-      <SocketContext.Provider value={{joinRoom, socket}}>
+      <SocketContext.Provider value={{joinRoom, onMessage, socket}}>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/joingame" component={JoinGame} />
