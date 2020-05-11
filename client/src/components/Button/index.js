@@ -6,7 +6,7 @@ import "./style.css";
 // This Container component allows us to use a bootstrap container without worrying about class names
 function Button(props) {
   return (
-    <button type="submit" className="btn btn-dark btn-block custom-button" onClick={props.onClick}>{props.name}</button>
+    <button type="submit" className="btn btn-outline-dark" onClick={props.onClick}>{props.name}</button>
   );
 }
 
