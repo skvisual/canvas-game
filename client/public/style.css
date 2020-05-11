@@ -13,3 +13,8 @@ body {
     width: 100%;
     max-width: 500px;
 }
+
+#logo {
+    max-height: 350px;
+    border-radius: 15px;
+}
