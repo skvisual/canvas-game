@@ -1,13 +1,22 @@
-const socket = require('socket.io-client');
+import React, { useState } from "react";
+const io = require('socket.io-client');
 
-// function init() {
+const SocketContext = React.createContext({
+    socket: {},
+    joinRoom: () => {}
+});
 
-    const socket = io(window.origin);
+    // const [username, setUsername] = useState();
+    // const [room, setRoom] = useState();
 
-    socket.emit('join', 'Can I play?')
+    // const socket = io(window.origin);
 
-    socket.on('message', message => {
-        console.log(message)
-    });
+    // socket.emit('message', 'hello server')
 
-// }
+    
+
+    // socket.on('message', (message) => {
+    //     console.log(message)
+    // })
+
+export default SocketContext;
