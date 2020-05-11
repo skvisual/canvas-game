@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Container } from "../components/Container";
 import { Link } from "react-router-dom";
 import Button from "../components/Button"
-import SocketContext from "../utils/Socket";
+import SocketContext from "../utils/Socket.js";
 
 function JoinGame() {
 
