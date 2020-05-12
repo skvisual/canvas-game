@@ -15,17 +15,9 @@ function Lobby() {
     setGameState(true);
   }
 
-  const { onMessage, populatePlayerNames, playerNames, room } = useContext(SocketContext)
+  const { populatePlayerNames, playerNames, room } = useContext(SocketContext)
 
   populatePlayerNames();
-
-  onMessage();
-
-  // useEffect(() => {
-  //   socket.on('message', (data) => {
-  //     console.log(data)
-  //   })
-  // }, [])
 
   return (
     <Container>
