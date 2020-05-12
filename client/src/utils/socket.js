@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-const io = require('socket.io-client');
+import React from "react";
 
 const SocketContext = React.createContext({
     socket: {},
+    username: '',
+    room: '',
     joinRoom: () => {},
     onMessage: () => {}
 });

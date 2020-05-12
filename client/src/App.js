@@ -10,29 +10,32 @@ import Guessing from "./pages/Guessing";
 import Decision from "./pages/Decision";
 import Winner from "./pages/Winner";
 import NoMatch from "./pages/NoMatch";
-import SocketContext from "./utils/Socket.js";
-
+import SocketContext from "./utils/socket.js";
 const io = require('socket.io-client');
 
 function App() {
 
-  const [socket, setSocket] = useState(io(window.origin))
+  const [socket] = useState(io(window.origin))
 
   const joinRoom = (username, room) => {
-    socket.emit('join-room', `Can ${username} join ${room}`)
+    socket.emit('join-room', {username, room});
   }
 
   const onMessage = () => {
     console.log('onMessage')
     socket.on('message', (data) => {
       console.log(data)
+      // console.log(socket)
     })
   }
+
+  const [username, setUsername] = useState('')
+  const [room, setRoom] = useState('')
 
   return (
     <Router>
       <div className="custom">
-      <SocketContext.Provider value={{joinRoom, onMessage, socket}}>
+      <SocketContext.Provider value={{joinRoom, onMessage, socket, username, setUsername, room, setRoom}}>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/joingame" component={JoinGame} />

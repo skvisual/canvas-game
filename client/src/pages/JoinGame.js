@@ -1,15 +1,16 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Container } from "../components/Container";
 import { Link } from "react-router-dom";
 import Button from "../components/Button"
-import SocketContext from "../utils/Socket.js";
+import SocketContext from "../utils/socket.js";
 
 function JoinGame() {
 
-  const [username, setUsername] = useState();
-  const [room, setRoom] = useState();
+  // const [username, setUsername] = useState();
+  // const [room, setRoom] = useState();
 
-  const { joinRoom } = useContext(SocketContext)
+  const { joinRoom, username, setUsername, room, setRoom } = useContext(SocketContext)
+  // const { setRoom } = useContext(SocketContext)
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value)
@@ -21,6 +22,7 @@ function JoinGame() {
 
   const handleJoinRoom = () => {
     joinRoom(username, room)
+    // setRoom(room);
   }
 
   return (

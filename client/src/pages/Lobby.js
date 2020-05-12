@@ -1,8 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Container } from "../components/Container";
 import { Link, Redirect } from "react-router-dom";
 import Button from "../components/Button";
-import SocketContext from "../utils/Socket";
+import SocketContext from "../utils/socket";
 
 function Lobby() {
   const [gameState, setGameState] = useState(false)
@@ -15,7 +15,7 @@ function Lobby() {
     setGameState(true);
   }
 
-  const { socket, onMessage } = useContext(SocketContext)
+  const { onMessage, room } = useContext(SocketContext)
 
   onMessage();
 
@@ -32,7 +32,7 @@ function Lobby() {
       </div>
       <div>
         <h4 className="text-center">Game Code:</h4>
-        <h3 className="text-center">AF3T</h3>
+        <h3 className="text-center">{room}</h3>
       </div>
       <div>
         <p className="text-center">Player 1</p>
