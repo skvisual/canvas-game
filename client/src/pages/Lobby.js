@@ -15,7 +15,9 @@ function Lobby() {
     setGameState(true);
   }
 
-  const { onMessage, room, username, playerList } = useContext(SocketContext)
+  const { onMessage, populatePlayerNames, playerNames, room } = useContext(SocketContext)
+
+  populatePlayerNames();
 
   onMessage();
 
@@ -35,11 +37,7 @@ function Lobby() {
         <h3 className="text-center">{room}</h3>
       </div>
       <div>
-        <p className="text-center">{username}</p>
-        <p className="text-center">{playerList}</p>
-        <p className="text-center">Player 2</p>
-        <p className="text-center">Player 3</p>
-        <p className="text-center">Player 4</p>
+        {playerNames.map((player, i) => <p key={i}>{player}</p>)}
       </div>
       <div>
         <Link to="/Drawing">
