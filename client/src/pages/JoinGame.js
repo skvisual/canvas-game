@@ -6,11 +6,7 @@ import SocketContext from "../utils/socket.js";
 
 function JoinGame() {
 
-  // const [username, setUsername] = useState();
-  // const [room, setRoom] = useState();
-
-  const { joinRoom, username, setUsername, room, setRoom, playerList } = useContext(SocketContext)
-  // const { setRoom } = useContext(SocketContext)
+  const { joinRoom, username, setUsername, room, setRoom } = useContext(SocketContext)
 
 
   const handleUsernameChange = (event) => {
@@ -22,7 +18,7 @@ function JoinGame() {
   }
 
   const handleJoinRoom = () => {
-    joinRoom(username, room, playerList)
+    joinRoom(username, room)
     // setRoom(room);
   }
 

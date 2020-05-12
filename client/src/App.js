@@ -16,16 +16,11 @@ const socket = io(window.origin)
 
 function App() {
 
+  const [username, setUsername] = useState('')
+  const [room, setRoom] = useState('')
+
   const joinRoom = (username, room) => {
     socket.emit('join-room', {username, room});
-  }
-
-  const onMessage = () => {
-    console.log('onMessage')
-    socket.on('message', (data) => {
-      console.log(data)
-      // console.log(socket)
-    })
   }
 
   const [playerNames, setPlayerNames] = useState([]);
@@ -36,14 +31,10 @@ function App() {
     })
   }
 
-  const [username, setUsername] = useState('')
-  const [room, setRoom] = useState('')
-  const [playerList, setPlayerList] = useState('')
-
   return (
     <Router>
       <div className="custom">
-      <SocketContext.Provider value={{joinRoom, onMessage, socket, username, setUsername, room, setRoom, playerNames, populatePlayerNames}}>
+      <SocketContext.Provider value={{joinRoom, socket, username, setUsername, room, setRoom, playerNames, populatePlayerNames}}>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/joingame" component={JoinGame} />
