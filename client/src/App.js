@@ -11,6 +11,7 @@ import Decision from "./pages/Decision";
 import Winner from "./pages/Winner";
 import NoMatch from "./pages/NoMatch";
 import SocketContext from "./utils/socket.js";
+
 const io = require('socket.io-client');
 const socket = io(window.origin)
 
@@ -23,18 +24,32 @@ function App() {
     socket.emit('join-room', {username, room});
   }
 
+  
   const [playerNames, setPlayerNames] = useState([]);
-
+  
   const populatePlayerNames = () => { 
     socket.on('player-names-array', (namesArray) => {
       setPlayerNames(namesArray);
     })
   }
 
+  const startGame = () => {
+    // e.preventDefault();
+    console.log('emitting start game (in startGame)')
+    socket.emit('start-game', room);
+  }
+  
+  const toGame = () => { 
+    socket.on('to-game', (data) => {
+      console.log('send to the game');
+      // setPlayerNames(namesArray);
+    })
+  }
+  
   return (
     <Router>
       <div className="custom">
-      <SocketContext.Provider value={{joinRoom, socket, username, setUsername, room, setRoom, playerNames, populatePlayerNames}}>
+      <SocketContext.Provider value={{joinRoom, startGame, toGame, socket, username, setUsername, room, setRoom, playerNames, populatePlayerNames}}>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/joingame" component={JoinGame} />
