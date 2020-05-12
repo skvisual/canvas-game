@@ -38,6 +38,7 @@ function App() {
 
   const [username, setUsername] = useState('')
   const [room, setRoom] = useState('')
+  const [playerList, setPlayerList] = useState('')
 
   return (
     <Router>
