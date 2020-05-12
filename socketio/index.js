@@ -10,6 +10,7 @@ module.exports = function(server){
         // })
 
         socket.on('join-room', (data) => {
+            console.log('working');
             socket.join(data.room)
             // console.log(data.room)
             // socket.emit('message', data)

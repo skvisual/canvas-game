@@ -9,8 +9,9 @@ function JoinGame() {
   // const [username, setUsername] = useState();
   // const [room, setRoom] = useState();
 
-  const { joinRoom, username, setUsername, room, setRoom } = useContext(SocketContext)
+  const { joinRoom, username, setUsername, room, setRoom, playerList } = useContext(SocketContext)
   // const { setRoom } = useContext(SocketContext)
+
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value)
@@ -21,7 +22,7 @@ function JoinGame() {
   }
 
   const handleJoinRoom = () => {
-    joinRoom(username, room)
+    joinRoom(username, room, playerList)
     // setRoom(room);
   }
 

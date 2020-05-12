@@ -12,10 +12,9 @@ import Winner from "./pages/Winner";
 import NoMatch from "./pages/NoMatch";
 import SocketContext from "./utils/socket.js";
 const io = require('socket.io-client');
+const socket = io(window.origin)
 
 function App() {
-
-  const [socket] = useState(io(window.origin))
 
   const joinRoom = (username, room) => {
     socket.emit('join-room', {username, room});
@@ -31,11 +30,12 @@ function App() {
 
   const [username, setUsername] = useState('')
   const [room, setRoom] = useState('')
+  const [playerList, setPlayerList] = useState('')
 
   return (
     <Router>
       <div className="custom">
-      <SocketContext.Provider value={{joinRoom, onMessage, socket, username, setUsername, room, setRoom}}>
+      <SocketContext.Provider value={{joinRoom, onMessage, socket, username, setUsername, room, setRoom, playerList, setPlayerList}}>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/joingame" component={JoinGame} />
