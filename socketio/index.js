@@ -21,6 +21,12 @@ module.exports = function(server){
             // io.sockets.emit('message', 'hello')
         })
 
+        socket.on('start-game', (room) => { 
+            console.log('emitting to game')
+            io.to(room).emit('to-game', 'The game is starting.');
+            // socket.broadcast.emit('to-game', 'The game is starting.')
+        })
+
     })
 
 }

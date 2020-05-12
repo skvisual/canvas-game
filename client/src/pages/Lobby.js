@@ -5,19 +5,21 @@ import Button from "../components/Button";
 import SocketContext from "../utils/socket";
 
 function Lobby() {
-  const [gameState, setGameState] = useState(false)
+  const { populatePlayerNames, playerNames, room, startGame, toGame } = useContext(SocketContext)
 
-  if(gameState === true){
+  populatePlayerNames();
+
+  toGame();
+
+  const [gameState, setGameState] = useState(0)
+
+  if(gameState === 1){
     return <Redirect to="/drawing" />
   }
 
-  const startGame = () => {
-    setGameState(true);
-  }
-
-  const { populatePlayerNames, playerNames, room } = useContext(SocketContext)
-
-  populatePlayerNames();
+  // const redirectGame = () => {
+  //   setGameState(true);
+  // }
 
   return (
     <Container>
@@ -32,13 +34,13 @@ function Lobby() {
         {playerNames.map((player, i) => <p key={i}>{player}</p>)}
       </div>
       <div>
-        <Link to="/Drawing">
-          <Button name={"Start"}/>
-        </Link>
+        {/* <Link to="/Drawing"> */}
+          <Button name={"Start"} onClick={startGame}/>
+        {/* </Link> */}
       </div>
-      <div>
-        <button onClick={startGame}>Start Game</button>
-      </div>
+      {/* <div> */}
+        {/* <button onClick={redirectGame}>Start Game</button> */}
+      {/* </div> */}
     </Container>
   );
 

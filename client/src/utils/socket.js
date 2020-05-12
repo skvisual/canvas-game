@@ -7,8 +7,11 @@ const SocketContext = React.createContext({
     playerNames: [],
     joinRoom: () => {},
     onMessage: () => {},
-    populatePlayerNames: () => {}
+    populatePlayerNames: () => {},
+    startGame: () => {},
+    toGame: () => {}
 });
+
 
     // const [username, setUsername] = useState();
     // const [room, setRoom] = useState();
