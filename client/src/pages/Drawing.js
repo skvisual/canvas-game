@@ -6,26 +6,37 @@ import Canvas from "../components/Canvas";
 
 function Drawing() {
 
-  const { imageData, submitImage, socket } = useContext(SocketContext)
+  console.log('Drawing Page Mount')
 
-  socket.on('guess-image', (data) => {
-    setGameState(2)
-  })
+  const { imageData, socket, room } = useContext(SocketContext)
 
   const [gameState, setGameState] = useState(0)
 
+  console.log('Drawing game state:', gameState);
+
   useEffect(() => {
     if(imageData){
+      console.log('imageData', imageData);
       console.log('image has been submitted');
       submitImage();
     }
   }, [imageData])
 
+  socket.on('guess-image', (data) => {
+    setGameState(2)
+  })
+
+  const submitImage = () => {
+    // e.preventDefault();
+    console.log('submitting image')
+    socket.emit('image-submitted', {imageData, room});
+  }
+
   if(gameState === 1){
-    return <Redirect to="/drawing" />
+    return (<Redirect to="/drawing" />)
   }
   else if (gameState === 2){
-    return <Redirect to="/waitingforguesses" />
+    return (<Redirect to="/waitingforguesses" />)
   }
 
   return (
