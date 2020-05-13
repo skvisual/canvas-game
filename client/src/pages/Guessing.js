@@ -1,11 +1,28 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SocketContext from "../utils/socket";
 import { Container } from "../components/Container";
 import Button from "../components/Button"
+import { Redirect } from "react-router-dom";
 
 function Guessing() {
 
-  const { imageData } = useContext(SocketContext)
+  const { imageData, myGuess, setMyGuess, socket, room, username } = useContext(SocketContext)
+
+  const handleGuessChange = (event) => {
+    setMyGuess(event.target.value)
+  }
+
+  const handleSubmitGuess = () => {
+    socket.emit('my-guess', {room, myGuess, username})
+    setGameState(1);
+  }
+
+  const [gameState, setGameState] = useState(0)
+
+  if(gameState === 1){
+    return <Redirect to="/waiting" />
+  }
+
 
   return (
     <Container>
@@ -19,10 +36,10 @@ function Guessing() {
           <img src={imageData} alt='user image'/>
       </div>
       <div>
-        <input type="text" placeholder="guess" className="form-control" />
+        <input type="text" placeholder="guess" className="form-control" onChange={handleGuessChange} />
       </div>
       <div>
-        <Button name={"Submit"}/>
+        <Button name={"Submit"} onClick={handleSubmitGuess}/>
       </div>
     </Container>
   );

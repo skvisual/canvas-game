@@ -3,34 +3,28 @@ import SocketContext from "../utils/socket";
 import { Container } from "../components/Container";
 import { Redirect } from "react-router-dom";
 
-function Waiting() {
+function WaitingForGuesses() {
 
-  const { socket, setImageData, setWinner } = useContext(SocketContext)
+  const { socket, setImageData, setAllGuesses } = useContext(SocketContext)
   const [gameState, setGameState] = useState(0)
 
   socket.on('guess-image', (data) => {
     setImageData(data)
+    console.log(data)
     setGameState(2)
   })
 
-  socket.on('all-guesses', () => {
-    setGameState(1)
-  })
-
-  socket.on('winner-result', (data) => {
-    setWinner(data)
-    setGameState(3)
-  })
-
   if(gameState === 1){
-    return <Redirect to="/waiting" />
+    return <Redirect to="/decision" />
   }
   else if (gameState === 2){
     return <Redirect to="/guessing" />
   }
-  else if (gameState === 3){
-    return <Redirect to="/winner" />
-  }
+
+  socket.on('all-guesses', (data) => {
+    setGameState(1)
+    setAllGuesses(data)
+  })
 
   return (
     <Container>
@@ -45,4 +39,4 @@ function Waiting() {
 
 }
 
-export default Waiting;
+export default WaitingForGuesses;
