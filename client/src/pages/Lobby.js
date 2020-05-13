@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
 import { Container } from "../components/Container";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Button from "../components/Button";
 import SocketContext from "../utils/socket";
+import logo from "../assets/images/squigglepig_lobby_clear.png"
 
 function Lobby() {
   const { populatePlayerNames, playerNames, room, startGame, toGame } = useContext(SocketContext)
@@ -10,7 +11,7 @@ function Lobby() {
   populatePlayerNames();
 
   toGame();
-
+  // eslint-disable-next-line
   const [gameState, setGameState] = useState(0)
 
   if(gameState === 1){
@@ -24,7 +25,7 @@ function Lobby() {
   return (
     <Container>
       <div>
-        <p className="text-center">Lobby</p>
+        <img id="logo" src={logo} alt="Squigglepig Logo"/>
       </div>
       <div>
         <h4 className="text-center">Game Code:</h4>
