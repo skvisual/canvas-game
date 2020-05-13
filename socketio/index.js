@@ -6,25 +6,23 @@ module.exports = function(server){
 
     io.on('connection', (socket) => {
 
-        // socket.on('message', (message) => {
-        //     console.log(message)
-        // })
-
         socket.on('join-room', (data) => {
             playerNamesArray.push(data.username);
             console.log(playerNamesArray);
             socket.join(data.room);
-            // console.log(data.room)
-            // socket.emit('message', data)
-            // io.to(data.room).emit('message', `${data.username} has joined room ${data.room}`);
             io.to(data.room).emit('player-names-array', playerNamesArray);
-            // io.sockets.emit('message', 'hello')
         })
 
         socket.on('start-game', (room) => { 
             console.log('emitting to game')
-            io.to(room).emit('to-game', 'The game is starting.');
-            // socket.broadcast.emit('to-game', 'The game is starting.')
+            socket.broadcast.to(room).emit('to-game', 2);
+            socket.emit('to-game', 1);
+        })
+
+        socket.on('image-submitted', (data) => {
+            console.log('emitting guess-image')
+            socket.broadcast.to(data.room).emit('guess-image', data.imageData);
+            socket.emit('guess-image', 'wait');
         })
 
     })
