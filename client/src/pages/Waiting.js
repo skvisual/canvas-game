@@ -8,8 +8,12 @@ function Waiting() {
   const { socket, setImageData, setWinner } = useContext(SocketContext)
   const [gameState, setGameState] = useState(0)
 
+  console.log('Waiting game state:', gameState);
+
   socket.on('guess-image', (data) => {
-    setImageData(data)
+    if (data !== 'wait'){
+      setImageData(data)
+    }
     setGameState(2)
   })
 

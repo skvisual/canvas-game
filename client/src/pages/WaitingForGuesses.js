@@ -9,7 +9,9 @@ function WaitingForGuesses() {
   const [gameState, setGameState] = useState(0)
 
   socket.on('guess-image', (data) => {
-    setImageData(data)
+    if (data !== 'wait'){
+        setImageData(data)
+    }
     console.log(data)
     setGameState(2)
   })

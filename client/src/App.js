@@ -43,16 +43,16 @@ function App() {
     socket.emit('start-game', room);
   }
   
-  const submitImage = () => {
-    // e.preventDefault();
-    console.log('submitting image')
-    socket.emit('image-submitted', {imageData, room});
-  }
+  // const submitImage = () => {
+  //   // e.preventDefault();
+  //   console.log('submitting image')
+  //   socket.emit('image-submitted', {imageData, room});
+  // }
   
   return (
     <Router>
       <div className="custom">
-      <SocketContext.Provider value={{joinRoom, startGame, socket, username, setUsername, room, setRoom, playerNames, populatePlayerNames, imageData, setImageData, submitImage, myGuess, setMyGuess, allGuesses, setAllGuesses, winner, setWinner}}>
+      <SocketContext.Provider value={{joinRoom, startGame, socket, username, setUsername, room, setRoom, playerNames, populatePlayerNames, imageData, setImageData, myGuess, setMyGuess, allGuesses, setAllGuesses, winner, setWinner}}>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/joingame" component={JoinGame} />

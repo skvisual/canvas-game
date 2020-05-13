@@ -12,8 +12,8 @@ const SocketContext = React.createContext({
     joinRoom: () => {},
     onMessage: () => {},
     populatePlayerNames: () => {},
-    startGame: () => {},
-    submitImage: () => {}
+    startGame: () => {}
+    // submitImage: () => {}
 });
 
 export default SocketContext;
