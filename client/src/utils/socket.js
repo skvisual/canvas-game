@@ -5,25 +5,12 @@ const SocketContext = React.createContext({
     username: '',
     room: '',
     playerNames: [],
+    imageData: '',
     joinRoom: () => {},
     onMessage: () => {},
     populatePlayerNames: () => {},
     startGame: () => {},
-    toGame: () => {}
+    submitImage: () => {}
 });
-
-
-    // const [username, setUsername] = useState();
-    // const [room, setRoom] = useState();
-
-    // const socket = io(window.origin);
-
-    // socket.emit('message', 'hello server')
-
-    
-
-    // socket.on('message', (message) => {
-    //     console.log(message)
-    // })
 
 export default SocketContext;

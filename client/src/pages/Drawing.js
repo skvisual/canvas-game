@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import SocketContext from "../utils/socket";
 import { Container } from "../components/Container";
-import Button from "../components/Button"
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Canvas from "../components/Canvas";
 
 function Drawing() {
+
+  const { imageData, submitImage, socket } = useContext(SocketContext)
+
+  socket.on('guess-image', (data) => {
+    setGameState(2)
+  })
+
+  const [gameState, setGameState] = useState(0)
+
+  useEffect(() => {
+    if(imageData){
+      console.log('image has been submitted');
+      submitImage();
+    }
+  }, [imageData])
+
+  if(gameState === 1){
+    return <Redirect to="/drawing" />
+  }
+  else if (gameState === 2){
+    return <Redirect to="/waiting" />
+  }
 
   return (
     <Container>
@@ -16,11 +38,6 @@ function Drawing() {
       </div>
       <div>
         <Canvas />
-      </div>
-      <div>
-        <Link to="/">
-          <Button name={"Home"}/>
-        </Link>
       </div>
     </Container>
   );

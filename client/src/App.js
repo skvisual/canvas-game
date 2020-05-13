@@ -19,12 +19,12 @@ function App() {
 
   const [username, setUsername] = useState('')
   const [room, setRoom] = useState('')
+  const [imageData, setImageData] = useState('')
 
   const joinRoom = (username, room) => {
     socket.emit('join-room', {username, room});
   }
 
-  
   const [playerNames, setPlayerNames] = useState([]);
   
   const populatePlayerNames = () => { 
@@ -39,17 +39,16 @@ function App() {
     socket.emit('start-game', room);
   }
   
-  const toGame = () => { 
-    socket.on('to-game', (data) => {
-      console.log('send to the game');
-      // setPlayerNames(namesArray);
-    })
+  const submitImage = () => {
+    // e.preventDefault();
+    console.log('submitting image')
+    socket.emit('image-submitted', {imageData, room});
   }
   
   return (
     <Router>
       <div className="custom">
-      <SocketContext.Provider value={{joinRoom, startGame, toGame, socket, username, setUsername, room, setRoom, playerNames, populatePlayerNames}}>
+      <SocketContext.Provider value={{joinRoom, startGame, socket, username, setUsername, room, setRoom, playerNames, populatePlayerNames, imageData, setImageData, submitImage}}>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/joingame" component={JoinGame} />

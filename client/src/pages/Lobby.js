@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Container } from "../components/Container";
 import { Redirect } from "react-router-dom";
 import Button from "../components/Button";
@@ -6,21 +6,23 @@ import SocketContext from "../utils/socket";
 import logo from "../assets/images/squigglepig_lobby_clear.png"
 
 function Lobby() {
-  const { populatePlayerNames, playerNames, room, startGame, toGame } = useContext(SocketContext)
+  const { populatePlayerNames, playerNames, room, startGame, socket } = useContext(SocketContext)
 
   populatePlayerNames();
 
-  toGame();
-  // eslint-disable-next-line
+  socket.on('to-game', (data) => {
+    setGameState(data);
+    console.log('the game is starting', data)
+  })
+
   const [gameState, setGameState] = useState(0)
 
   if(gameState === 1){
     return <Redirect to="/drawing" />
   }
-
-  // const redirectGame = () => {
-  //   setGameState(true);
-  // }
+  else if (gameState === 2){
+    return <Redirect to="/waiting" />
+  }
 
   return (
     <Container>
