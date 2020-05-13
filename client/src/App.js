@@ -6,6 +6,7 @@ import CreateGame from "./pages/CreateGame";
 import Lobby from "./pages/Lobby";
 import Drawing from "./pages/Drawing";
 import Waiting from "./pages/Waiting";
+import WaitingForGuesses from "./pages/WaitingForGuesses";
 import Guessing from "./pages/Guessing";
 import Decision from "./pages/Decision";
 import Winner from "./pages/Winner";
@@ -20,6 +21,9 @@ function App() {
   const [username, setUsername] = useState('')
   const [room, setRoom] = useState('')
   const [imageData, setImageData] = useState('')
+  const [myGuess, setMyGuess] = useState('')
+  var [allGuesses, setAllGuesses] = useState([])
+  const [winner, setWinner] = useState('')
 
   const joinRoom = (username, room) => {
     socket.emit('join-room', {username, room});
@@ -48,7 +52,7 @@ function App() {
   return (
     <Router>
       <div className="custom">
-      <SocketContext.Provider value={{joinRoom, startGame, socket, username, setUsername, room, setRoom, playerNames, populatePlayerNames, imageData, setImageData, submitImage}}>
+      <SocketContext.Provider value={{joinRoom, startGame, socket, username, setUsername, room, setRoom, playerNames, populatePlayerNames, imageData, setImageData, submitImage, myGuess, setMyGuess, allGuesses, setAllGuesses, winner, setWinner}}>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/joingame" component={JoinGame} />
@@ -56,6 +60,7 @@ function App() {
             <Route exact path="/lobby" component={Lobby} />
             <Route exact path="/drawing" component={Drawing} />
             <Route exact path="/waiting" component={Waiting} />
+            <Route exact path="/waitingforguesses" component={WaitingForGuesses} />
             <Route exact path="/guessing" component={Guessing} />
             <Route exact path="/decision" component={Decision} />
             <Route exact path="/winner" component={Winner} />

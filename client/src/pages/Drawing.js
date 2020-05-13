@@ -25,7 +25,7 @@ function Drawing() {
     return <Redirect to="/drawing" />
   }
   else if (gameState === 2){
-    return <Redirect to="/waiting" />
+    return <Redirect to="/waitingforguesses" />
   }
 
   return (

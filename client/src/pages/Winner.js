@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container } from "../components/Container";
 import Button from "../components/Button"
+import SocketContext from "../utils/socket";
 
 function Winner() {
+
+  const { winner, imageData } = useContext(SocketContext)
+
+  console.log(winner)
 
   return (
     <Container>
@@ -10,7 +15,12 @@ function Winner() {
         <p className="text-center">Winner</p>
       </div>
       <div>
-        <h4 className="text-center">Player 2 is the winner with "cat bazooka"</h4>
+        <h3 className="text-center">{winner.username}</h3>
+        <h4 className="text-center">is the winner with</h4>
+        <h3 className="text-center">{winner.guess}</h3>
+      </div>
+      <div>
+          <img src={imageData} alt='user image'/>
       </div>
       <div>
         <Button name={"Ready"}/>

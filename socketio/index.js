@@ -3,6 +3,7 @@ const socket = require('socket.io');
 module.exports = function(server){
     var io = socket(server);
     const playerNamesArray = [];
+    const playerGuesses = [];
 
     io.on('connection', (socket) => {
 
@@ -25,6 +26,20 @@ module.exports = function(server){
             socket.emit('guess-image', 'wait');
         })
 
+        socket.on('my-guess', (data) => {
+            // check guess count
+            console.log('a guess', data)
+            playerGuesses.push({guess: data.myGuess, username: data.username})
+            if(playerGuesses.length === playerNamesArray.length -1){
+                socket.to(data.room).emit('all-guesses', playerGuesses);
+            }
+
+        })
+
+        socket.on('the-winner', (data) => {
+            console.log(data)
+            io.to(data.room).emit('winner-result', {username: data.username, guess: data.guess});
+        })
     })
 
 }
