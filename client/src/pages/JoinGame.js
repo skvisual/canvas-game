@@ -1,8 +1,10 @@
+// eslint-disable-next-line
 import React, { useState, useContext } from "react";
 import { Container } from "../components/Container";
 import { Link } from "react-router-dom";
 import Button from "../components/Button"
 import SocketContext from "../utils/socket.js";
+import logo from "../assets/images/squigglepig_join_game_clear.png"
 
 function JoinGame() {
 
@@ -25,7 +27,7 @@ function JoinGame() {
   return (
     <Container>
       <div>
-        <p className="text-center">Join Game</p>
+        <img id="logo" src={logo} alt="Squigglepig Logo"/>
       </div>
       <div>
         <input type="text" placeholder="room code" className="form-control" onChange={handleRoomChange}/>
