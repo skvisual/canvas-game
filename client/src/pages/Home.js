@@ -17,11 +17,6 @@ function Home() {
           <Button name={"Join Game"}/>
         </Link>
       </div>
-      <div>
-        <Link to="/creategame">
-          <Button name={"Create Game"}/>
-        </Link>
-      </div>
     </Container>
   );
 

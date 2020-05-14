@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Container } from "../components/Container";
 import Button from "../components/Button"
+import Image from "../components/Image"
 import SocketContext from "../utils/socket";
 import { Redirect } from "react-router-dom";
 
@@ -53,7 +54,7 @@ function Winner() {
           <h3 className="text-center">{winner.guess}</h3>
         </div>
         <div>
-            <img src={imageData} alt='user image'/>
+          <Image image={imageData} />
         </div>
         <div>
         <h3 className="text-center">Waiting for others to ready up...</h3>
@@ -73,7 +74,7 @@ function Winner() {
         <h3 className="text-center">{winner.guess}</h3>
       </div>
       <div>
-          <img src={imageData} alt='user image'/>
+          <Image image={imageData} />
       </div>
       <div>
         <Button name={"Ready"} onClick={readyUp}/>

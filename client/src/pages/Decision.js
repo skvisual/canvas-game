@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import SocketContext from "../utils/socket";
 import { Container } from "../components/Container";
 import Button from "../components/Button"
+import Image from "../components/Image"
 import { Redirect } from "react-router-dom";
 
 function Decision() {
@@ -33,7 +34,7 @@ function Decision() {
         <h4 className="text-center">Make your decision.</h4>
       </div>
       <div>
-          <img src={imageData} alt='user image'/>
+          <Image image={imageData} />
       </div>
       {allGuesses.map((guess, i) => (<div><Button key={i} name={guess.guess} onClick={() => theWinner(guess.username, guess.guess)}/></div>))}
     </Container>
