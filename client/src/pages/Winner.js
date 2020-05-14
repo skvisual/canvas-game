@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Container } from "../components/Container";
 import Button from "../components/Button"
 import Image from "../components/Image"
