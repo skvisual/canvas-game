@@ -3,7 +3,9 @@ import SocketContext from "../utils/socket";
 import { Container } from "../components/Container";
 import { Redirect } from "react-router-dom";
 
+
 function WaitingForGuesses() {
+
 
   const { socket, setImageData, setAllGuesses } = useContext(SocketContext)
   const [gameState, setGameState] = useState(0)

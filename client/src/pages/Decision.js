@@ -4,11 +4,20 @@ import { Container } from "../components/Container";
 import Button from "../components/Button"
 import Image from "../components/Image"
 import { Redirect } from "react-router-dom";
+import UIfx from 'uifx';
+import winnermp3 from '../assets/sounds/winner.mp3'
 
 function Decision() {
 
   const { socket, allGuesses, imageData, room, setWinner } = useContext(SocketContext)
   const [gameState, setGameState] = useState(0)
+
+  const winnerTone = new UIfx(
+    winnermp3,
+    {
+      volume: 0.1
+    }
+  )
 
   const theWinner = (username, guess) => {
     console.log('the winner', username)
@@ -16,6 +25,7 @@ function Decision() {
   }
 
   socket.on('winner-result', (data) => {
+    winnerTone.play();
     console.log('winner-result')
     setWinner(data)
     setGameState(1)
