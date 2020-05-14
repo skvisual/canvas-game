@@ -7,12 +7,12 @@ import SignatureCanvas from 'react-signature-canvas'
 
 
 function Canvas() {
-var canvasWidth = 430;
-  if (window.innerWidth<400){
-       canvasWidth = 300;
-  }
-  else if (window.innerWidth<500){
-     canvasWidth = 350;
+var canvasWidth = 425;
+  // if (window.innerWidth<400){
+  //      canvasWidth = 300;
+  // }
+   if (window.innerWidth<500){
+     canvasWidth = window.innerWidth - 75;
   }
   const { setImageData } = useContext(SocketContext)
   var canvas = document.getElementById('canvas');
