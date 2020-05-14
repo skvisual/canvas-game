@@ -6,7 +6,7 @@ import Image from "../components/Image"
 import { Redirect } from "react-router-dom";
 import UIfx from 'uifx';
 import winnermp3 from '../assets/sounds/winner.mp3'
-import logo from "../assets/images/squigglepig_raise_hand.png"
+import logo from "../assets/images/squigglepig_decide.gif"
 
 function Decision() {
 
