@@ -9,10 +9,23 @@ module.exports = function(server){
     io.on('connection', (socket) => {
 
         socket.on('join-room', (data) => {
-            playerNamesArray.push(data.username);
-            console.log(playerNamesArray);
+            
+            // playerNamesArray.push(data.username);
+
             socket.join(data.room);
-            io.to(data.room).emit('player-names-array', playerNamesArray);
+
+            if(!io.sockets.adapter.rooms[data.room].playerNamesArray){
+                console.log('initiate variables')
+                io.sockets.adapter.rooms[data.room].playerNamesArray = []
+                io.sockets.adapter.rooms[data.room].playerGuesses = []
+                io.sockets.adapter.rooms[data.room].playersReadyCount = 0
+            }
+            
+            io.sockets.adapter.rooms[data.room].playerNamesArray.push(data.username)
+
+            // console.log(io.sockets.adapter.rooms[data.room].playerNamesArray)
+
+            io.to(data.room).emit('player-names-array', io.sockets.adapter.rooms[data.room].playerNamesArray);
         })
 
         socket.on('start-game', (room) => { 
@@ -30,9 +43,9 @@ module.exports = function(server){
         socket.on('my-guess', (data) => {
             // check guess count
             console.log('a guess', data)
-            playerGuesses.push({guess: data.myGuess, username: data.username})
-            if(playerGuesses.length === playerNamesArray.length -1){
-                io.to(data.room).emit('all-guesses', playerGuesses);
+            io.sockets.adapter.rooms[data.room].playerGuesses.push({guess: data.myGuess, username: data.username})
+            if(io.sockets.adapter.rooms[data.room].playerGuesses.length === io.sockets.adapter.rooms[data.room].playerNamesArray.length -1){
+                io.to(data.room).emit('all-guesses', io.sockets.adapter.rooms[data.room].playerGuesses);
             }
 
         })
@@ -43,12 +56,12 @@ module.exports = function(server){
         })
 
         socket.on('ready-up', (data) => {
-            playersReadyCount += 1;
-            console.log(playersReadyCount)
-            console.log(playerNamesArray.length)
-            if (playersReadyCount === playerNamesArray.length) {
-                playerGuesses = [];
-                playersReadyCount = 0;
+            io.sockets.adapter.rooms[data].playersReadyCount += 1;
+            console.log(io.sockets.adapter.rooms[data].playersReadyCount)
+            console.log(io.sockets.adapter.rooms[data].playerNamesArray.length)
+            if (io.sockets.adapter.rooms[data].playersReadyCount === io.sockets.adapter.rooms[data].playerNamesArray.length) {
+                io.sockets.adapter.rooms[data].playerGuesses = [];
+                io.sockets.adapter.rooms[data].playersReadyCount = 0;
 
                 socket.broadcast.to(data).emit('to-game', 2);
                 socket.emit('to-game', 1);

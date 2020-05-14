@@ -1,7 +1,6 @@
 // eslint-disable-next-line
 import React, { useEffect, useContext, useState } from "react";
 import { Container } from "../components/Container";
-import { Link } from "react-router-dom";
 import Button from "../components/Button"
 import SocketContext from "../utils/socket.js";
 import logo from "../assets/images/squigglepig_join_game_clear.png"
