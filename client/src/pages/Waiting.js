@@ -27,7 +27,7 @@ function Waiting() {
   })
 
   if(gameState === 1){
-    return <Redirect to="/waiting" />
+    return <Redirect to="/viewguesses" />
   }
   else if (gameState === 2){
     return <Redirect to="/guessing" />
