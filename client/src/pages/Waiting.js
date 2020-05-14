@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import SocketContext from "../utils/socket";
 import { Container } from "../components/Container";
 import { Redirect } from "react-router-dom";
+import logo from "../assets/images/squigglepig.gif"
 
 function Waiting() {
 
@@ -38,8 +39,8 @@ function Waiting() {
 
   return (
     <Container>
-      <div>
-        <p className="text-center">Waiting Screen</p>
+       <div>
+        <img id="logo" src={logo} alt="Squigglepig Logo"/>
       </div>
       <div>
         <h4 className="text-center">Please wait while...</h4>
