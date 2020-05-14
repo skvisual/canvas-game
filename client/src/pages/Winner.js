@@ -6,7 +6,7 @@ import SocketContext from "../utils/socket";
 import { Redirect } from "react-router-dom";
 import UIfx from 'uifx';
 import buttonconfirm from '../assets/sounds/pigGrunt.mp3'
-
+import logo from "../assets/images/squigglepig_winner.gif"
 
 
 function Winner() {
@@ -62,9 +62,9 @@ function Winner() {
   if(gameState === 3){
     return (
       <Container>
-        <div className="text-center">
-          <p className="text-center">Winner</p>
-        </div>
+      <div className="text-center">
+        <img id="logo" src={logo} alt="Squigglepig Logo"/>
+      </div>
         <div>
           <h3 className="text-center">{winner.username}</h3>
           <h4 className="text-center">is the winner with</h4>
@@ -82,9 +82,10 @@ function Winner() {
 
   return (
     <Container>
-      <div>
-        <p className="text-center">Winner</p>
+      <div className="text-center">
+        <img id="logo" src={logo} alt="Squigglepig Logo"/>
       </div>
+      <br></br>
       <div>
         <h3 className="text-center">{winner.username}</h3>
         <h4 className="text-center">is the winner with</h4>
