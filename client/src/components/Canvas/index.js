@@ -32,8 +32,8 @@ var canvasWidth = 430;
       <SignatureCanvas penColor='black' backgroundColor ='white'
         canvasProps={{ width: canvasWidth, height: 200, id: 'canvas', className: 'sigCanvas' }} />
 
-      <button className = "btn btn-dark btn-block custom-button" onClick={submit}>Submit Drawing</button>
-      <button className = "btn btn-dark btn-block custom-button" onClick={clearScreen}>Clear</button>
+      <button className = "btn btn-outline-dark btn-block custom-button" onClick={submit}>Submit Drawing</button>
+      <button className = "btn btn-outline-dark btn-block custom-button" onClick={clearScreen}>Clear</button>
     </div>
   )
 }

@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import SocketContext from "../utils/socket";
 import { Container } from "../components/Container";
 import { Redirect } from "react-router-dom";
+import logo from "../assets/images/squigglepig_laugh.gif"
 
 function ViewGuesses() {
 
@@ -21,7 +22,7 @@ function ViewGuesses() {
   return (
     <Container>
       <div>
-        <p className="text-center">View Guesses</p>
+        <img id="logo" src={logo} alt="Squigglepig Logo"/>
       </div>
       <div>
         {allGuesses.map((guess, i) => (<div><p key={i}>{guess.guess}</p></div>))}

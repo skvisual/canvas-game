@@ -5,3 +5,18 @@ canvas {
   cursor: crosshair;
 }
 
+.btn-outline-dark {
+  background-color: rgba(26, 83, 92, 0.726);
+  color: whitesmoke;
+  box-shadow: none;
+}
+
+.btn {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.btn-outline-dark:hover {
+  background-color: #0A434C;
+}
+
