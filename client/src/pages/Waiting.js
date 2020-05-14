@@ -42,8 +42,9 @@ function Waiting() {
        <div>
         <img id="logo" src={logo} alt="Squigglepig Logo"/>
       </div>
+      <br></br>
       <div>
-        <h4 className="text-center">Please wait while...</h4>
+        <h4 className="text-center">Please wait while the genius is at work.</h4>
       </div>
     </Container>
   );
