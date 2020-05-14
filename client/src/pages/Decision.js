@@ -6,6 +6,7 @@ import Image from "../components/Image"
 import { Redirect } from "react-router-dom";
 import UIfx from 'uifx';
 import winnermp3 from '../assets/sounds/winner.mp3'
+import logo from "../assets/images/squigglepig_raise_hand.png"
 
 function Decision() {
 
@@ -38,7 +39,7 @@ function Decision() {
   return (
     <Container>
       <div>
-        <p className="text-center">Decision</p>
+        <img id="logo" src={logo} alt="Squigglepig Logo"/>
       </div>
       <div>
         <h4 className="text-center">Make your decision.</h4>
