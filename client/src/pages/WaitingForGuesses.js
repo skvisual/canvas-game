@@ -4,7 +4,9 @@ import { Container } from "../components/Container";
 import { Redirect } from "react-router-dom";
 import logo from "../assets/images/squigglepig.gif"
 
+
 function WaitingForGuesses() {
+
 
   const { socket, setImageData, setAllGuesses } = useContext(SocketContext)
   const [gameState, setGameState] = useState(0)

@@ -6,7 +6,7 @@ import logo from "../assets/images/squigglepig.gif"
 
 function Waiting() {
 
-  const { socket, setImageData, setWinner } = useContext(SocketContext)
+  const { socket, setImageData, setWinner, setAllGuesses } = useContext(SocketContext)
   const [gameState, setGameState] = useState(0)
 
   console.log('Waiting game state:', gameState);
@@ -18,8 +18,9 @@ function Waiting() {
     setGameState(2)
   })
 
-  socket.on('all-guesses', () => {
+  socket.on('all-guesses', (data) => {
     setGameState(1)
+    setAllGuesses(data)
   })
 
   socket.on('winner-result', (data) => {

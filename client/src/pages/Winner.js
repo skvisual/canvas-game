@@ -1,11 +1,27 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Container } from "../components/Container";
 import Button from "../components/Button"
 import Image from "../components/Image"
 import SocketContext from "../utils/socket";
 import { Redirect } from "react-router-dom";
+import UIfx from 'uifx';
+import buttonconfirm from '../assets/sounds/buttonconfirm.mp3'
+
+
 
 function Winner() {
+
+
+  const buttonConfirm = new UIfx(
+    buttonconfirm,
+    {
+      volume: 1.0
+    }
+  )
+
+  // useEffect(() => {
+  //   winnerTone.play();
+  // })
 
   const { winner, setWinner, imageData, setImageData, socket, room, setMyGuess, setAllGuesses} = useContext(SocketContext)
   const [gameState, setGameState] = useState(0)
@@ -13,6 +29,7 @@ function Winner() {
   console.log(winner)
 
   const readyUp = () => {
+    buttonConfirm.play();
     socket.emit('ready-up', room)
     setGameState(3);
   }

@@ -5,8 +5,18 @@ import { Link } from "react-router-dom";
 import Button from "../components/Button"
 import SocketContext from "../utils/socket.js";
 import logo from "../assets/images/squigglepig_join_game_clear.png"
+import UIfx from 'uifx';
+import buttonconfirm from '../assets/sounds/buttonconfirm.mp3'
+
 
 function JoinGame() {
+
+    const buttonConfirm = new UIfx(
+      buttonconfirm,
+      {
+        volume: 1.0
+      }
+    )
 
   const { joinRoom, username, setUsername, room, setRoom } = useContext(SocketContext)
 
@@ -20,9 +30,12 @@ function JoinGame() {
   }
 
   const handleJoinRoom = () => {
+    buttonConfirm.play()
     joinRoom(username, room)
     // setRoom(room);
   }
+
+
 
   return (
     <Container>

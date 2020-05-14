@@ -4,8 +4,18 @@ import { Container } from "../components/Container";
 import { Redirect } from "react-router-dom";
 import Canvas from "../components/Canvas";
 import pigCanvas from "../assets/images/canvas_pig.png"
+import UIfx from 'uifx';
+import buttonconfirm from '../assets/sounds/buttonconfirm.mp3'
 
 function Drawing() {
+
+  const buttonConfirm = new UIfx(
+    buttonconfirm,
+    {
+      volume: 1.0
+    }
+  )
+
 
   console.log('Drawing Page Mount')
 
@@ -28,6 +38,7 @@ function Drawing() {
   })
 
   const submitImage = () => {
+    buttonConfirm.play();
     // e.preventDefault();
     console.log('submitting image')
     socket.emit('image-submitted', {imageData, room});
