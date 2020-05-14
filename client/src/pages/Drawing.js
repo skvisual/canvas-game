@@ -3,6 +3,7 @@ import SocketContext from "../utils/socket";
 import { Container } from "../components/Container";
 import { Redirect } from "react-router-dom";
 import Canvas from "../components/Canvas";
+import SuggestedPrompt from "../components/SuggestedPrompt";
 
 import UIfx from 'uifx';
 import buttonconfirm from '../assets/sounds/pigGrunt.mp3'
@@ -56,6 +57,7 @@ function Drawing() {
       <div>
         <Canvas />
       </div>
+      <SuggestedPrompt></SuggestedPrompt>
     </Container>
   );
 
