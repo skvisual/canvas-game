@@ -9,6 +9,7 @@ import Waiting from "./pages/Waiting";
 import WaitingForGuesses from "./pages/WaitingForGuesses";
 import Guessing from "./pages/Guessing";
 import Decision from "./pages/Decision";
+import ViewGuesses from "./pages/ViewGuesses";
 import Winner from "./pages/Winner";
 import NoMatch from "./pages/NoMatch";
 import SocketContext from "./utils/socket.js";
@@ -63,6 +64,7 @@ function App() {
             <Route exact path="/waitingforguesses" component={WaitingForGuesses} />
             <Route exact path="/guessing" component={Guessing} />
             <Route exact path="/decision" component={Decision} />
+            <Route exact path="/viewguesses" component={ViewGuesses} />
             <Route exact path="/winner" component={Winner} />
             <Route component={NoMatch} />
           </Switch>
