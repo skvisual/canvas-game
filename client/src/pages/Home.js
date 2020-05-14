@@ -9,7 +9,7 @@ function Home() {
 
   return (
     <Container>
-      <div>
+      <div className="text-center">
         <img id="logo" src={logo} alt="Squigglepig Logo"/>
       </div>
       

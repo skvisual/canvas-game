@@ -53,7 +53,7 @@ function Drawing() {
 
   return (
     <Container>
-       <div>
+       <div className="text-center">
         <img id="pigCanvas" src={pigCanvas} alt="Squigglepig Logo"/>
       </div>
       <div>

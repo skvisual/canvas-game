@@ -62,7 +62,7 @@ function Winner() {
   if(gameState === 3){
     return (
       <Container>
-        <div>
+        <div className="text-center">
           <p className="text-center">Winner</p>
         </div>
         <div>
