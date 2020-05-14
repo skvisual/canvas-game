@@ -25,9 +25,11 @@ function Guessing() {
   }
 
   const handleSubmitGuess = () => {
-    buttonConfirm.play();
-    socket.emit('my-guess', {room, myGuess, username})
-    setGameState(1);
+    if(myGuess !== ''){
+      buttonConfirm.play();
+      socket.emit('my-guess', {room, myGuess, username})
+      setGameState(1);
+    }
   }
 
   const [gameState, setGameState] = useState(0)
