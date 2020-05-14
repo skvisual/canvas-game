@@ -2,9 +2,11 @@ import React, { useContext, useState } from "react";
 import SocketContext from "../utils/socket";
 import { Container } from "../components/Container";
 import Button from "../components/Button"
+import Image from "../components/Image"
 import { Redirect } from "react-router-dom";
 import UIfx from 'uifx';
 import winnermp3 from '../assets/sounds/winner.mp3'
+import logo from "../assets/images/squigglepig_raise_hand.png"
 
 function Decision() {
 
@@ -36,14 +38,14 @@ function Decision() {
 
   return (
     <Container>
-      <div>
-        <p className="text-center">Decision</p>
+      <div className="text-center">
+        <img id="logo" src={logo} alt="Squigglepig Logo"/>
       </div>
       <div>
-        <h4 className="text-center">Make your decision.</h4>
+        <h4 className="text-center">Choose your favorite.</h4>
       </div>
       <div>
-          <img src={imageData} alt='user image'/>
+          <Image image={imageData} />
       </div>
       {allGuesses.map((guess, i) => (<div><Button key={i} name={guess.guess} onClick={() => theWinner(guess.username, guess.guess)}/></div>))}
     </Container>

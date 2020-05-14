@@ -1,11 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import SocketContext from "../utils/socket";
 import { Container } from "../components/Container";
 import Button from "../components/Button"
+import Image from "../components/Image"
 import { Redirect } from "react-router-dom";
+import logo from "../assets/images/squigglepig_cell.png"
 import UIfx from 'uifx';
 import buttonconfirm from '../assets/sounds/buttonconfirm.mp3'
-
 
 function Guessing() {
 
@@ -24,9 +25,11 @@ function Guessing() {
   }
 
   const handleSubmitGuess = () => {
-    buttonConfirm.play();
-    socket.emit('my-guess', {room, myGuess, username})
-    setGameState(1);
+    if(myGuess !== ''){
+      buttonConfirm.play();
+      socket.emit('my-guess', {room, myGuess, username})
+      setGameState(1);
+    }
   }
 
   const [gameState, setGameState] = useState(0)
@@ -38,14 +41,14 @@ function Guessing() {
 
   return (
     <Container>
-      <div>
-        <p className="text-center">Guessing</p>
+      <div className="text-center">
+        <img id="logo" src={logo} alt="Squigglepig Logo"/>
       </div>
       <div>
         <h4 className="text-center">Make your guess.</h4>
       </div>
       <div>
-          <img src={imageData} alt='user image'/>
+          <Image image={imageData} />
       </div>
       <div>
         <input type="text" placeholder="guess" className="form-control" onChange={handleGuessChange} />

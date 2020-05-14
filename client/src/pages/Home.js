@@ -9,18 +9,13 @@ function Home() {
 
   return (
     <Container>
-      <div>
+      <div className="text-center">
         <img id="logo" src={logo} alt="Squigglepig Logo"/>
       </div>
       
       <div>
         <Link to="/joingame">
           <Button name={"Join Game"}/>
-        </Link>
-      </div>
-      <div>
-        <Link to="/creategame">
-          <Button name={"Create Game"}/>
         </Link>
       </div>
     </Container>

@@ -2,10 +2,11 @@ import React, { useContext, useState } from "react";
 import SocketContext from "../utils/socket";
 import { Container } from "../components/Container";
 import { Redirect } from "react-router-dom";
+import logo from "../assets/images/squigglepig.gif"
 
 function Waiting() {
 
-  const { socket, setImageData, setWinner } = useContext(SocketContext)
+  const { socket, setImageData, setWinner, setAllGuesses } = useContext(SocketContext)
   const [gameState, setGameState] = useState(0)
 
   console.log('Waiting game state:', gameState);
@@ -17,8 +18,9 @@ function Waiting() {
     setGameState(2)
   })
 
-  socket.on('all-guesses', () => {
+  socket.on('all-guesses', (data) => {
     setGameState(1)
+    setAllGuesses(data)
   })
 
   socket.on('winner-result', (data) => {
@@ -27,7 +29,7 @@ function Waiting() {
   })
 
   if(gameState === 1){
-    return <Redirect to="/waiting" />
+    return <Redirect to="/viewguesses" />
   }
   else if (gameState === 2){
     return <Redirect to="/guessing" />
@@ -38,11 +40,12 @@ function Waiting() {
 
   return (
     <Container>
-      <div>
-        <p className="text-center">Waiting Screen</p>
+       <div className="text-center">
+        <img id="logo" src={logo} alt="Squigglepig Logo"/>
       </div>
+      <br></br>
       <div>
-        <h4 className="text-center">Please wait while...</h4>
+        <h4 className="text-center">Please wait while the genius is at work.</h4>
       </div>
     </Container>
   );
