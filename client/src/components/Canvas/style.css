@@ -1,7 +1,7 @@
 canvas {
-  border: 2px dotted #CCCCCC;
-  border-radius: 5px;
+  border-style: solid;
+  border-radius: 15px;
+  border-color: black;
   cursor: crosshair;
-
 }
 
