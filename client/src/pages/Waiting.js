@@ -6,7 +6,7 @@ import logo from "../assets/images/squigglepig.gif"
 
 function Waiting() {
 
-  const { socket, setImageData, setWinner } = useContext(SocketContext)
+  const { socket, setImageData, setWinner, setAllGuesses } = useContext(SocketContext)
   const [gameState, setGameState] = useState(0)
 
   console.log('Waiting game state:', gameState);
