@@ -6,14 +6,14 @@ import Image from "../components/Image"
 import { Redirect } from "react-router-dom";
 import logo from "../assets/images/squigglepig_cell.png"
 import UIfx from 'uifx';
-import buttonconfirm from '../assets/sounds/buttonconfirm.mp3'
+import buttonconfirm from '../assets/sounds/pigGrunt.mp3'
 
 function Guessing() {
 
   const buttonConfirm = new UIfx(
     buttonconfirm,
     {
-      volume: 1.0
+      volume: 0.3
     }
   )
 

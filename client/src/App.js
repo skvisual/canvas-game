@@ -14,7 +14,7 @@ import Winner from "./pages/Winner";
 import NoMatch from "./pages/NoMatch";
 import SocketContext from "./utils/socket.js";
 import UIfx from 'uifx';
-import buttonconfirm from './assets/sounds/buttonconfirm.mp3'
+import buttonconfirm from './assets/sounds/pigGrunt.mp3'
 
 
 const io = require('socket.io-client');
@@ -25,7 +25,7 @@ function App() {
   const buttonConfirm = new UIfx(
     buttonconfirm,
     {
-      volume: 1.0
+      volume: 0.3
     }
   )
 

@@ -6,7 +6,7 @@ import Button from "../components/Button"
 import SocketContext from "../utils/socket.js";
 import logo from "../assets/images/squigglepig_join_game_clear.png"
 import UIfx from 'uifx';
-import buttonconfirm from '../assets/sounds/buttonconfirm.mp3'
+import buttonconfirm from '../assets/sounds/pigGrunt.mp3'
 import thememusic from '../assets/sounds/themeMusicXT.mp3'
 import { Redirect } from "react-router-dom";
 
@@ -16,14 +16,14 @@ function JoinGame() {
     const buttonConfirm = new UIfx(
       buttonconfirm,
       {
-        volume: 1.0
+        volume: 0.3
       }
     )
 
     const themeMusic = new UIfx(
       thememusic,
       {
-        volume: 0.9,
+        volume: 0.3
       }
     )
   

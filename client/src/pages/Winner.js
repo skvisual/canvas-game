@@ -5,7 +5,7 @@ import Image from "../components/Image"
 import SocketContext from "../utils/socket";
 import { Redirect } from "react-router-dom";
 import UIfx from 'uifx';
-import buttonconfirm from '../assets/sounds/buttonconfirm.mp3'
+import buttonconfirm from '../assets/sounds/pigGrunt.mp3'
 
 
 
@@ -15,7 +15,7 @@ function Winner() {
   const buttonConfirm = new UIfx(
     buttonconfirm,
     {
-      volume: 1.0
+      volume: 0.3
     }
   )
 
