@@ -3,7 +3,7 @@ import SocketContext from "../utils/socket";
 import { Container } from "../components/Container";
 import { Redirect } from "react-router-dom";
 import Canvas from "../components/Canvas";
-import pigCanvas from "../assets/images/canvas_pig.png"
+
 import UIfx from 'uifx';
 import buttonconfirm from '../assets/sounds/pigGrunt.mp3'
 
@@ -53,7 +53,6 @@ function Drawing() {
 
   return (
     <Container>
-        <img className="text-center" id="pigCanvas" src={pigCanvas} alt="Squigglepig Logo"/>
       <div>
         <Canvas />
       </div>
