@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import SocketContext from "../../utils/socket";
-import './style.css'
+import './style.css';
+import pigCanvas from "../../assets/images/canvas_pig.png";
 
 // import ReactDOM from 'react-dom'
 import SignatureCanvas from 'react-signature-canvas'
@@ -29,6 +30,7 @@ var canvasWidth = 430;
 
   return (
     <div className="App"> 
+    <img className="text-center" id="pigCanvas" src={pigCanvas} alt="Squigglepig Logo"/>
       <SignatureCanvas penColor='black' backgroundColor ='white'
         canvasProps={{ width: canvasWidth, height: 200, id: 'canvas', className: 'sigCanvas' }} />
 
