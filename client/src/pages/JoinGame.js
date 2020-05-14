@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import React, { useContext, useState } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Container } from "../components/Container";
 import { Link } from "react-router-dom";
 import Button from "../components/Button"
@@ -7,6 +7,7 @@ import SocketContext from "../utils/socket.js";
 import logo from "../assets/images/squigglepig_join_game_clear.png"
 import UIfx from 'uifx';
 import buttonconfirm from '../assets/sounds/buttonconfirm.mp3'
+import thememusic from '../assets/sounds/themeMusicXT.mp3'
 import { Redirect } from "react-router-dom";
 
 
@@ -18,6 +19,17 @@ function JoinGame() {
         volume: 1.0
       }
     )
+
+    const themeMusic = new UIfx(
+      thememusic,
+      {
+        volume: 0.9,
+      }
+    )
+  
+    useEffect(() => {
+      themeMusic.play()
+    },[])
 
   const { joinRoom, username, setUsername, room, setRoom } = useContext(SocketContext)
   const [gameState, setGameState] = useState(0)
@@ -37,6 +49,8 @@ function JoinGame() {
       setGameState(1)
     }
   }
+
+  
 
   if(gameState === 1){
     return <Redirect to="/lobby" />
