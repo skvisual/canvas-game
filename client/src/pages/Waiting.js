@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 
 function Waiting() {
 
-  const { socket, setImageData, setWinner } = useContext(SocketContext)
+  const { socket, setImageData, setWinner, setAllGuesses } = useContext(SocketContext)
   const [gameState, setGameState] = useState(0)
 
   console.log('Waiting game state:', gameState);
