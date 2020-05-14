@@ -4,6 +4,7 @@ import { Container } from "../components/Container";
 import Button from "../components/Button"
 import Image from "../components/Image"
 import { Redirect } from "react-router-dom";
+import logo from "../assets/images/squigglepig_cell.png"
 
 function Guessing() {
 
@@ -28,7 +29,7 @@ function Guessing() {
   return (
     <Container>
       <div>
-        <p className="text-center">Guessing</p>
+        <img id="logo" src={logo} alt="Squigglepig Logo"/>
       </div>
       <div>
         <h4 className="text-center">Make your guess.</h4>

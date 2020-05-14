@@ -3,6 +3,7 @@ import SocketContext from "../utils/socket";
 import { Container } from "../components/Container";
 import { Redirect } from "react-router-dom";
 import Canvas from "../components/Canvas";
+import pigCanvas from "../assets/images/canvas_pig.png"
 
 function Drawing() {
 
@@ -41,11 +42,8 @@ function Drawing() {
 
   return (
     <Container>
-      <div>
-        <p className="text-center">In Game</p>
-      </div>
-      <div>
-        <h4 className="text-center">Your turn to draw</h4>
+       <div>
+        <img id="pigCanvas" src={pigCanvas} alt="Squigglepig Logo"/>
       </div>
       <div>
         <Canvas />
