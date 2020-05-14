@@ -38,11 +38,11 @@ function Decision() {
 
   return (
     <Container>
-      <div>
+      <div className="text-center">
         <img id="logo" src={logo} alt="Squigglepig Logo"/>
       </div>
       <div>
-        <h4 className="text-center">Make your decision.</h4>
+        <h4 className="text-center">Choose your favorite.</h4>
       </div>
       <div>
           <Image image={imageData} />
