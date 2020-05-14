@@ -32,7 +32,7 @@ module.exports = function(server){
             console.log('a guess', data)
             playerGuesses.push({guess: data.myGuess, username: data.username})
             if(playerGuesses.length === playerNamesArray.length -1){
-                socket.to(data.room).emit('all-guesses', playerGuesses);
+                io.to(data.room).emit('all-guesses', playerGuesses);
             }
 
         })
