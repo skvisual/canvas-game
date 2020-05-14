@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Container } from "../components/Container";
 import { Redirect } from "react-router-dom";
 import Button from "../components/Button";

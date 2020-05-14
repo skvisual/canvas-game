@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import SocketContext from "../utils/socket";
 import { Container } from "../components/Container";
 import Button from "../components/Button"
+import Image from "../components/Image"
 import { Redirect } from "react-router-dom";
 
 function Guessing() {
@@ -33,7 +34,7 @@ function Guessing() {
         <h4 className="text-center">Make your guess.</h4>
       </div>
       <div>
-          <img src={imageData} alt='user image'/>
+          <Image image={imageData} />
       </div>
       <div>
         <input type="text" placeholder="guess" className="form-control" onChange={handleGuessChange} />

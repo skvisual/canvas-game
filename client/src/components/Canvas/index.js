@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import SocketContext from "../../utils/socket";
 import './style.css'
 
@@ -14,7 +14,7 @@ var canvasWidth = 430;
   else if (window.innerWidth<500){
      canvasWidth = 350;
   }
-  const { imageData, setImageData } = useContext(SocketContext)
+  const { setImageData } = useContext(SocketContext)
   var canvas = document.getElementById('canvas');
   function submit() {
     canvas = document.getElementById('canvas');
