@@ -5,14 +5,14 @@ import { Redirect } from "react-router-dom";
 import Canvas from "../components/Canvas";
 import pigCanvas from "../assets/images/canvas_pig.png"
 import UIfx from 'uifx';
-import buttonconfirm from '../assets/sounds/buttonconfirm.mp3'
+import buttonconfirm from '../assets/sounds/pigGrunt.mp3'
 
 function Drawing() {
 
   const buttonConfirm = new UIfx(
     buttonconfirm,
     {
-      volume: 1.0
+      volume: 0.3
     }
   )
 

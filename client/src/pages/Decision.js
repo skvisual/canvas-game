@@ -16,7 +16,7 @@ function Decision() {
   const winnerTone = new UIfx(
     winnermp3,
     {
-      volume: 0.4    
+      volume: 0.3   
     }
   )
 
