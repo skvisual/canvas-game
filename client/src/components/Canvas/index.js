@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import SocketContext from "../../utils/socket";
-// import CanvasComponent from './components/CanvasComponent';
 import './style.css'
 
 // import ReactDOM from 'react-dom'
@@ -8,18 +7,19 @@ import SignatureCanvas from 'react-signature-canvas'
 
 
 function Canvas() {
-
+var canvasWidth = 430;
+  if (window.innerWidth<400){
+       canvasWidth = 300;
+  }
+  else if (window.innerWidth<500){
+     canvasWidth = 350;
+  }
   const { imageData, setImageData } = useContext(SocketContext)
-
   var canvas = document.getElementById('canvas');
-
   function submit() {
     canvas = document.getElementById('canvas');
-
     var dataURL = canvas.toDataURL();
-
     setImageData(dataURL)
-
   }
 
   function clearScreen() {
@@ -28,19 +28,14 @@ function Canvas() {
   }
 
   return (
-    <div className="App">
-      
-      <SignatureCanvas penColor='black'
-        canvasProps={{ width: 430, height: 200, id: 'canvas', className: 'sigCanvas' }} />
+    <div className="App"> 
+      <SignatureCanvas penColor='black' backgroundColor ='white'
+        canvasProps={{ width: canvasWidth, height: 200, id: 'canvas', className: 'sigCanvas' }} />
 
       <button className = "btn btn-dark btn-block custom-button" onClick={submit}>Submit Drawing</button>
       <button className = "btn btn-dark btn-block custom-button" onClick={clearScreen}>Clear</button>
-
     </div>
   )
-
 }
-
-
 
 export default Canvas;
