@@ -3,6 +3,7 @@ import SocketContext from "../utils/socket";
 import { Container } from "../components/Container";
 import { Redirect } from "react-router-dom";
 import logo from "../assets/images/squigglepig_laugh.gif"
+import Button from "../components/Button"
 
 function ViewGuesses() {
 
@@ -25,7 +26,10 @@ function ViewGuesses() {
         <img id="logo" src={logo} alt="Squigglepig Logo"/>
       </div>
       <div>
-        {allGuesses.map((guess, i) => (<div><p key={i}>{guess.guess}</p></div>))}
+        <h4 className="text-center">See what everyone had to say:</h4>
+      </div>
+      <div>
+        {allGuesses.map((guess, i) => (<div><Button key={i} name={guess.guess}/></div>))}
       </div>
     </Container>
   );
