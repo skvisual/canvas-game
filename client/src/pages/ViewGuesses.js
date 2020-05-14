@@ -24,7 +24,7 @@ function ViewGuesses() {
         <p className="text-center">View Guesses</p>
       </div>
       <div>
-        {allGuesses.map((guess, i) => (<p key={i}>{guess.guess}</p>))}
+        {allGuesses.map((guess, i) => (<div><p key={i}>{guess.guess}</p></div>))}
       </div>
     </Container>
   );
