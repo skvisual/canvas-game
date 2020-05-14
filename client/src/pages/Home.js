@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container } from "../components/Container";
 import Button from "../components/Button"
 import { Link } from "react-router-dom";
 import logo from "../assets/images/squigglepig_clear.png"
+
 
 function Home() {
 

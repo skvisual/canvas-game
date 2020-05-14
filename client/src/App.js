@@ -12,11 +12,21 @@ import Decision from "./pages/Decision";
 import Winner from "./pages/Winner";
 import NoMatch from "./pages/NoMatch";
 import SocketContext from "./utils/socket.js";
+import UIfx from 'uifx';
+import buttonconfirm from './assets/sounds/buttonconfirm.mp3'
+
 
 const io = require('socket.io-client');
 const socket = io(window.origin)
 
 function App() {
+
+  const buttonConfirm = new UIfx(
+    buttonconfirm,
+    {
+      volume: 1.0
+    }
+  )
 
   const [username, setUsername] = useState('')
   const [room, setRoom] = useState('')
@@ -38,6 +48,7 @@ function App() {
   }
 
   const startGame = () => {
+    buttonConfirm.play()
     // e.preventDefault();
     console.log('emitting start game (in startGame)')
     socket.emit('start-game', room);

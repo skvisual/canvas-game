@@ -6,6 +6,7 @@ import SocketContext from "../utils/socket";
 import logo from "../assets/images/squigglepig_lobby_clear.png"
 
 function Lobby() {
+  
   const { populatePlayerNames, playerNames, room, startGame, socket } = useContext(SocketContext)
 
   populatePlayerNames();
