@@ -25,3 +25,89 @@ body {
     margin-bottom: -5%;
     /* margin-left: -10%; */
 }
+
+/* HELP MODAL */
+
+.modal-button {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #4ECDC4;
+    border: none;
+    box-shadow: none;
+}
+
+.modal-button:focus, .modal-button:active{
+    outline: none !important;
+    box-shadow: none;
+    
+}
+
+.modal-button:hover {
+    color: palevioletred;
+}
+
+.modal-content {
+    margin: 0 auto !important;
+    background-color: rgba(26, 26, 26, 0.63);
+    color: rgb(231, 231, 231);
+}
+
+.modal-title {
+    margin: 0 auto;
+    font-size: 30px;
+    color: palevioletred;
+
+}
+
+.modal-dialog-centered {
+    margin: 0 auto !important;
+}
+
+.modal-header {
+    border: none;
+    padding-top: 50px;
+}
+.modal-text-header {
+    text-align: center;
+}
+
+.oink {
+    color: palevioletred;
+}
+
+.card {
+    background-color: rgba(26, 26, 26, 0.63);
+    color: rgb(231, 231, 231);
+
+}
+
+.card-body {
+    text-align: center;
+}
+
+.dropdown-header {
+    /* text-align: center !important; */
+    color: palevioletred;
+    font-size: 20px;
+}
+
+.dropdown-header:hover {
+    color: palevioletred;
+    text-decoration: none;
+}
+
+.dropdown-collapse {
+    font-size: 12px;
+}
+
+.dropdown-body-text {
+    font-weight: bolder;
+}
+
+.dropdown-body-header {
+    font-size: 15px;
+    text-decoration: underline;
+    color: #4ECDC4;
+}
+
+
