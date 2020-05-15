@@ -52,14 +52,14 @@ function howToModal() {
                                 <br></br><br></br>
                                 <h5 className="dropdown-body-header">GAME ROOM CREATION</h5>
                                 <p className="dropdown-body-text">Squigglepig only requires one person to create a game room.</p>
-                                    <p className="list-item">STEP 1</p>  The person creating the room uses a user-generated room name.
-                                    <p className="list-item">STEP 2</p> The game creator then sends the unique room name to anyone they want to include in their game.
-                                    <p className="list-item">STEP 3</p> Once submitted, you will be directed to the waiting room. Do not proceed further, wait for all players here. Their names will appear as they join.
+                                    <p className="list-item">STEP 1</p>  The person creating the room uses a user-generated room name.<br></br><br></br>
+                                    <p className="list-item">STEP 2</p> The game creator then sends the room name to anyone they want to include in their game.<br></br><br></br>
+                                    <p className="list-item">STEP 3</p> Once submitted, you will be directed to the waiting room. DO NOT proceed further, wait for all players here. Their names will appear as they join.<br></br><br></br>
                                     <p className="list-item">STEP 4</p> Click "Start" to begin squigglin'!
                                     <br></br><br></br>                             
                                 <p className="dropdown-body-header">JOIN AN EXISTING ROOM</p>
-                                <p> At the Join Room menu, simply enter the code given to you by the room creator.
-                                <br></br>Nothing else to do!
+                                <p> At the Join Room menu, simply enter the game room code given to you.
+                                <br></br>That's it, nothing else to do!
                                 <br></br><br></br> Once you join a room, wait at the lobby screen until everyone has joined.</p>
                                 <br></br>
                                 <p className="dropdown-body-header">PLAYING THE GAME</p>
