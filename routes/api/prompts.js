@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Prompt = require("../../models/Prompts");
+
 //  
 
 // gets back all the prompts
@@ -32,5 +33,7 @@ router.post("/", (req, res) => {
 router.get('/:promptId', (req,res) => {
     console.log(req.params.promptId);
 })
+
+
 
 module.exports = router;
