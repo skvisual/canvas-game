@@ -31,7 +31,7 @@ var canvasWidth = 425;
   return (
     <div className="App"> 
     <img className="text-center" id="pigCanvas" src={pigCanvas} alt="Squigglepig Logo"/>
-      <SignatureCanvas penColor='black' backgroundColor ='white'
+      <SignatureCanvas penColor='black' 
         canvasProps={{ width: canvasWidth, height: 200, id: 'canvas', className: 'sigCanvas' }} />
 
       <button className = "btn btn-outline-dark btn-block custom-button" onClick={submit}>Submit Drawing</button>
