@@ -110,4 +110,16 @@ body {
     color: #4ECDC4;
 }
 
+.dropdown-quote-text {
+    color: palevioletred;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.list-item {
+    font-weight: bold;
+}
+
+
+
 
