@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Container } from "../components/Container";
 import Button from "../components/Button"
 import { Link } from "react-router-dom";
 import logo from "../assets/images/squigglepig_clear.png"
+import HowToModal from "../components/Modal/modal"
 
 
 function Home() {
@@ -18,6 +19,10 @@ function Home() {
           <Button name={"Join Game"}/>
         </Link>
       </div>
+      <div>
+        <HowToModal />
+      </div>
+
     </Container>
   );
 
