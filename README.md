@@ -2,7 +2,7 @@
 
 The Squigglepig Team has one focus - we want you to have fun with your friends. Draw an image, have your friends write funny captions, choose and winner, and have a laugh.
 
-![Alts Text](client\src\assets\images\squigglepig_laugh.gif)
+![Squigglepig Laughing](client/src/assets/images/squigglepig_laugh.gif)
 
 ## Deployment
 
