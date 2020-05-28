@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../../models/User");
-
+// without this file the website breaks
 // get back all the users
 router.get("/", async (req, res) => {
     try{
