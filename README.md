@@ -21,6 +21,7 @@ Squigglepig 1.0 - Release Date 15 May, 2020
 ## Authors
 
 * **Maxwell Hankner** - *Game Logic - Socket.io Implementation* - [Github](https://github.com/maxwellhankner)
+* **Lukas Hirsch** - *Back End - API Development* - [Github](https://github.com/lhirsch1)
 * **Jason Kroening** - *Game Logic - Socket.io Sound Effects - UIFX Implementation* - [Github](https://github.com/skvisual)
 * **Chris Wells** - *Game Logic - Canvas Implementation* - [Github](https://github.com/chriswells1995/)
 * **R. Alan Williams** - *Back End - API Development Front End - UI/UX* - [Github](https://github.com/rwilliams01101)
