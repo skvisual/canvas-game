@@ -4,13 +4,11 @@ const promptsRoutes = require("./prompts");
 const promptsAdjectiveRoutes = require("./adjectivePrompts");
 const usersRoutes = require("./users");
 
-// Book routes
 router.use("/prompts", promptsRoutes);
 
 router.use("/adjectives", promptsAdjectiveRoutes);
 
 
-// Google Routes
 router.use("/users", usersRoutes);
 
 // For anything else, render the html page
